@@ -1,9 +1,6 @@
 <template>
   <footer class="footer">
-    <p
-      v-if="sns"
-      class="footer-sns-link"
-    >
+    <p v-if="sns" class="footer-sns-link">
       <a
         v-for="(item, name) in sns"
         :key="name"
@@ -11,23 +8,17 @@
         :href="item.link"
         class="sns-link"
       >
-        <IconSns
-          :name="name"
-          :account="item.account"
-        />
+        <IconSns :name="name" :account="item.account" />
       </a>
     </p>
     <!-- eslint-disable vue/no-v-html -->
     <div class="copyright">
-      <span
-        id="custom"
-        v-html="custom"
-      />
+      <span id="custom" v-html="custom" />
       <iframe
         v-if="gitbtn"
         :src="gitbtn.repository"
         class="footer-btn"
-        style="margin-left: 2px; margin-bottom:-5px;"
+        style="margin-left: 2px; margin-bottom: -5px"
         :frameborder="gitbtn.frameborder"
         :scrolling="gitbtn.scrolling"
         :width="gitbtn.width"
@@ -38,23 +29,23 @@
 </template>
 
 <script>
-import IconSns from '@theme/components/IconSns.vue'
+import IconSns from "@theme/components/IconSns.vue";
 export default {
   components: {
     IconSns,
   },
   computed: {
-    sns () {
-      return this.$themeConfig.sns || null
+    sns() {
+      return this.$themeConfig.sns || null;
     },
-    custom () {
-      return this.$themeConfig.footer.custom || null
+    custom() {
+      return this.$themeConfig.footer.custom || null;
     },
-    gitbtn () {
-      return this.$themeConfig.footer.gitbtn || null
+    gitbtn() {
+      return this.$themeConfig.footer.gitbtn || null;
     },
   },
-}
+};
 </script>
 <style lang="stylus">
 @requier '~@theme/styles/variables'

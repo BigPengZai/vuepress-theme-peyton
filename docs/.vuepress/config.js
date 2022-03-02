@@ -25,18 +25,20 @@ module.exports = {
     ],
   ],
 
-  theme: path.resolve(__dirname, "../"),
+  theme: path.resolve(__dirname, "../../index.js"),
   themeConfig: {
-    title: "Top Blog",
+    title: "Peyton Blog",
 
     // aside personInfo
     personalInfo: {
       name: "peyton",
-      avatar: "/avatar-top.jpeg",
-      headerBackgroundImg: "/avatar-bg.jpeg",
-      description: "In me the tiger sniffs the rose<br/>心有猛虎，细嗅蔷薇",
-      email: "facecode@foxmail.com",
+      avatar: "/peyton.jpg",
+      headerBackgroundImg: "/home-bg.jpeg",
+      description:
+        "climb the top of the mountain,<br/>don't stand at the foot<br/>有志登山顶，无志站山脚",
+      email: "peytonpeng1990@163.com",
       location: "Shanghai, China",
+      phonenumber: "15052851735",
       // organization: '不知名某公司',
     },
     // Nav link
@@ -47,9 +49,9 @@ module.exports = {
     ],
     header: {
       home: {
-        title: "Top Blog",
-        subtitle: "好好生活，慢慢相遇",
-        headerImage: "/home-bg.jpeg",
+        title: "Peyton Blog",
+        subtitle: "TODO跨越知道和做到的鸿沟",
+        headerImage: "/avatar-bg.jpeg",
       },
       tags: {
         title: "Tags",
@@ -60,48 +62,40 @@ module.exports = {
     },
     // footer sns
     sns: {
-      csdn: {
-        account: "csdn",
-        link: "https://blog.csdn.net/weixin_44002432",
-      },
-      weibo: {
-        account: "weibo",
-        link: "https://weibo.com/u/5656925978",
-      },
       juejin: {
         account: "juejin",
-        link: "https://juejin.im/user/5ce784a0f265da1b8333673c",
+        link: "https://juejin.cn/user/1820446983193261",
       },
-      zhihu: {
-        account: "zhihu",
-        link: "https://www.zhihu.com/people/sheng-tang-de-xing-kong",
+      mayun: {
+        account: "mayun",
+        link: "https://gitee.com/pengpenghaode",
       },
       github: {
         account: "github",
-        link: "https://github.com/youdeliang",
+        link: "https://github.com/BigPengZai",
       },
     },
     // footer github button
     footer: {
       gitbtn: {
         repository:
-          "https://ghbtns.com/github-btn.html?user=youdeliang&repo=vuepress-theme-melodydl&type=star&count=true",
+          "https://ghbtns.com/github-btn.html?user=BigPengZai&repo=vuepress-theme-peyton&type=star&count=false",
         frameborder: 0,
         scrolling: 0,
         width: "80px",
         height: "20px",
       },
-      custom: `Copyright &copy; Top Blog 2020 <br />
+      custom: `Copyright &copy; Peyton Blog 2020 <br />
         Theme By <a href='https://www.vuepress.cn/' target='_blank'>VuePress</a>
-        | <a href='https://www.github.com/youdeliang/' target='_blank'>youdeliang</a>`,
+        | <a href='https://github.com/BigPengZai/' target='_blank'>peyton</a>`,
     },
     pagination: {
       perPage: 5,
     },
 
     comments: {
-      owner: "youdeliang",
-      repo: "vuepress-theme-melodydl",
+      owner: "peyton",
+      repo: "vuepress-theme-peyton",
       clientId: "d821e5499c1d72a78039",
       clientSecret: "7aee0783e9d4110041e604e7121b985655a49cf1",
       autoCreateIssue: true,

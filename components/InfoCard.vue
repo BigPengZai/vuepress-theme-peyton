@@ -1,15 +1,8 @@
 /* eslint-disable no-dupe-keys */
 <template>
   <div class="info-card">
-    <div
-      class="info-card-header"
-      :style="headerStyle"
-    >
-      <img
-        class="info-avatar"
-        :src="avatar"
-        :alt="name"
-      >
+    <div class="info-card-header" :style="headerStyle">
+      <img class="info-avatar" :src="avatar" :alt="name" />
     </div>
 
     <div class="info-card-body">
@@ -17,18 +10,11 @@
         {{ nickName }}
       </section>
       <!-- eslint-disable vue/no-v-html -->
-      <section
-        v-if="description"
-        class="info-desc"
-        v-html="description"
-      />
+      <section v-if="description" class="info-desc" v-html="description" />
 
       <section class="info-contact">
         <section v-if="location">
-          <IconInfo
-            class="info-email"
-            type="location"
-          >
+          <IconInfo class="info-email" type="location">
             {{ location }}
           </IconInfo>
         </section>
@@ -44,20 +30,19 @@
         </section>
 
         <section v-if="email">
-          <IconInfo
-            class="info-email"
-            type="email"
-          >
+          <IconInfo class="info-email" type="email">
             {{ email }}
+          </IconInfo>
+        </section>
+        <section v-if="phonenumber">
+          <IconInfo class="info-email" type="phonenumber">
+            {{ phonenumber }}
           </IconInfo>
         </section>
       </section>
     </div>
     <div class="info-card-footer">
-      <p
-        v-if="sns"
-        class="footer-sns-link"
-      >
+      <p v-if="sns" class="footer-sns-link">
         <a
           v-for="(item, name) in sns"
           :key="name"
@@ -65,11 +50,7 @@
           :href="item.link"
           class="sns-link"
         >
-          <IconSns
-            :name="name"
-            :account="item.account"
-            size="35px"
-          />
+          <IconSns :name="name" :account="item.account" size="35px" />
         </a>
       </p>
     </div>
@@ -77,65 +58,75 @@
 </template>
 
 <script>
-import IconSns from '@theme/components/IconSns.vue'
-import IconInfo from '@theme/components/IconInfo.vue'
+import IconSns from "@theme/components/IconSns.vue";
+import IconInfo from "@theme/components/IconInfo.vue";
 export default {
+  props: {
+    name: {
+      type: String,
+      default: "",
+    },
+  },
   components: {
     IconSns,
     IconInfo,
   },
   computed: {
-    sns () {
-      return this.$themeConfig.sns || null
+    sns() {
+      return this.$themeConfig.sns || null;
     },
 
-    info () {
-      return this.$themeConfig.personalInfo || {}
+    info() {
+      return this.$themeConfig.personalInfo || {};
     },
 
-    avatar () {
-      return this.info.avatar || '/avatar-top.jpeg'
+    avatar() {
+      return this.info.avatar || "/avatar-top.jpeg";
     },
 
-    nickName () {
-      return this.info.name || 'Unknown'
+    nickName() {
+      return this.info.name || "Unknown";
     },
 
-    description () {
-      return this.info.description || null
+    description() {
+      return this.info.description || null;
     },
 
-    location () {
-      return this.info.location || null
+    location() {
+      return this.info.location || null;
     },
 
-    organization () {
-      return this.info.organization || null
+    organization() {
+      return this.info.organization || null;
     },
 
-    email () {
-      return this.info.email || null
+    email() {
+      return this.info.email || null;
     },
 
-    headerBackgroundImg () {
-      return this.info.headerBackgroundImg || null
+    phonenumber() {
+      return this.info.phonenumber || null;
     },
 
-    headerStyle () {
+    headerBackgroundImg() {
+      return this.info.headerBackgroundImg || null;
+    },
+
+    headerStyle() {
       if (this.headerBackgroundImg) {
         return {
-          'background-size': 'cover',
-          'background-repeat': 'no-repeat',
-          'background-position': 'center',
-          'background-attachment': 'scroll',
-          'background-image': `url(${this.headerBackgroundImg})`,
-        }
+          "background-size": "cover",
+          "background-repeat": "no-repeat",
+          "background-position": "center",
+          "background-attachment": "scroll",
+          "background-image": `url(${this.headerBackgroundImg})`,
+        };
       }
 
-      return {}
+      return {};
     },
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>
@@ -184,5 +175,4 @@ $avatarHeight = 120px
   .info-card-footer
     text-align center
     padding 0.5rem
-
 </style>

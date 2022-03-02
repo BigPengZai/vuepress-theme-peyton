@@ -1,9 +1,6 @@
 <template>
   <div class="post-list-item main-div">
-    <RouterLink
-      :to="post.path"
-      class="post-link"
-    >
+    <RouterLink :to="post.path" class="post-link">
       <div class="post-content">
         <h3 class="post-title">
           <span class="post-time">
@@ -13,20 +10,11 @@
           <span>{{ post.title }}</span>
         </h3>
         <!-- eslint-disable vue/no-v-html -->
-        <p
-          class="post-excerpt"
-          v-html="post.excerpt"
-        />
-        <p
-          v-for="tag of tags"
-          :key="tag"
-          class="tag post-category"
-        >
+        <p class="post-excerpt" v-html="post.excerpt" />
+        <p v-for="tag of tags" :key="tag" class="tag post-category">
           {{ tag }}
         </p>
-        <div class="post-button">
-          阅读全文
-        </div>
+        <div class="post-button">阅读全文</div>
       </div>
     </RouterLink>
   </div>
@@ -34,13 +22,13 @@
 
 <script>
 export default {
-  name: 'PostList',
+  name: "PostList",
   filters: {
-    formatterDay (date) {
-      return date.split('-').join('.').slice(5)
+    formatterDay(date) {
+      return date.split("-").join(".").slice(5);
     },
-    formatterYear (date) {
-      return date.split('-').join('').slice(0, 4)
+    formatterYear(date) {
+      return date.split("-").join("").slice(0, 4);
     },
   },
   props: {
@@ -50,14 +38,14 @@ export default {
     },
   },
   computed: {
-    listPosts () {
-      return this.posts || this.$posts
+    listPosts() {
+      return this.posts || this.$posts;
     },
-    tags () {
-      return this.post.tags || []
+    tags() {
+      return this.post.tags || [];
     },
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>
@@ -82,6 +70,7 @@ export default {
         align-items flex-end
         transition all 0.2s
         .post-time
+
           color #fff
           text-align center
           font-size 0.75rem

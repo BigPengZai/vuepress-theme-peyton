@@ -1,13 +1,10 @@
 <template>
-  <nav
-    class="navbar"
-    :style="navbarStyle"
-  >
+  <nav class="navbar" :style="navbarStyle">
     <RouterLink
       class="navbar-link"
       :to="$localePath"
       :class="{
-        'fontColor': fixed
+        fontColor: fixed,
       }"
     >
       {{ navtitle }}
@@ -17,99 +14,88 @@
       v-if="navList"
       class="navbar-links"
       :class="{
-        'show': isNavBtn,
-        'fontColor': fixed
+        show: isNavBtn,
+        fontColor: fixed,
       }"
     >
-      <li
-        v-for="(item, index) of navList"
-        :key="index"
-      >
-        <a
-          v-if="item.type=='url'"
-          :href="item.link"
-          target="_blank"
-        >
+      <li v-for="(item, index) of navList" :key="index">
+        <a v-if="item.type == 'url'" :href="item.link" target="_blank">
           {{ item.text }}
         </a>
 
-        <RouterLink
-          v-else
-          tag="a"
-          :to="item.link"
-          @click.native="isNavBtn = false"
-        >
+        <RouterLink v-else :to="item.link" @click.native="isNavBtn = false">
           {{ item.text }}
         </RouterLink>
       </li>
     </ul>
 
     <!-- @media nav button -->
-    <div
-      id="nav-icon"
-      :class="navbtnShow"
-      @click="isNavBtn = !isNavBtn"
-    >
-      <span
-        v-for="count in 3"
-        :key="count"
-      />
+    <div id="nav-icon" :class="navbtnShow" @click="isNavBtn = !isNavBtn">
+      <span v-for="count in 3" :key="count" />
     </div>
   </nav>
 </template>
 
 <script>
-import throttle from 'lodash.throttle'
+import throttle from "lodash.throttle";
 export default {
-  data () {
+  data() {
     return {
       fixed: false,
       isNavBtn: false, // @media nav is button
       scrollHeight: 0,
       scrollListener: throttle(() => {
-        this.fixed = this.getScrollTop() - this.scrollHeight < 0
-          ? !!this.getScrollTop()
-          : false
-        this.scrollHeight = this.getScrollTop()
+        this.fixed =
+          this.getScrollTop() - this.scrollHeight < 0
+            ? !!this.getScrollTop()
+            : false;
+        this.scrollHeight = this.getScrollTop();
       }, 100),
-    }
+    };
   },
   computed: {
-    navbtnShow () {
-      return this.isNavBtn ? 'open' : null
+    navbtnShow() {
+      return this.isNavBtn ? "open" : null;
     },
-    navtitle () {
-      return this.$themeConfig.title
+    navtitle() {
+      return this.$themeConfig.title;
     },
-    navList () {
-      return this.$themeConfig.nav
+    navList() {
+      return this.$themeConfig.nav;
     },
-    navbarStyle () {
+    navbarStyle() {
       return {
-        position: this.fixed ? 'fixed' : 'absolute',
-        background: this.fixed ? '#fff' : null,
-        'box-shadow': this.fixed ? 'rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px' : null,
-        color: this.fixed ? '#404040' : null,
-        opacity: this.fixed ? '0.8' : '1',
-        transition: 'all 0.5s ease-in-out',
-      }
+        position: this.fixed ? "fixed" : "absolute",
+        background: this.fixed ? "#fff" : null,
+        "box-shadow": this.fixed
+          ? "rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px"
+          : null,
+        color: this.fixed ? "#404040" : null,
+        opacity: this.fixed ? "0.8" : "1",
+        transition: "all 0.5s ease-in-out",
+      };
     },
   },
-  mounted () {
-    window.addEventListener('scroll', this.scrollListener)
+  mounted() {
+    window.addEventListener("scroll", this.scrollListener);
   },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.scrollListener)
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.scrollListener);
   },
   methods: {
-    randomArr (arr) {
-      return arr[Math.floor(Math.random() * arr.length)]
+    randomArr(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
     },
-    getScrollTop () {
-      return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || null
+    getScrollTop() {
+      return (
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        null
+      );
     },
   },
-}
+};
 </script>
 
 <style lang="stylus">
