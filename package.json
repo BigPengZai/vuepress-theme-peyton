@@ -1,0 +1,49 @@
+{
+  "name": "vuepress-theme-peyton",
+  "version": "1.0.0",
+  "description": "theme-peyton",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BigPengZai/vuepress-theme-peyton"
+  },
+  "author": "peyton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BigPengZai/vuepress-theme-peyton/issues"
+  },
+  "homepage": "https://github.com/BigPengZai/vuepress-theme-peyton",
+  "dependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@vssue/api-github-v3": "^1.4.3",
+    "@vssue/vuepress-plugin-vssue": "^1.4.3",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "@vue/babel-preset-jsx": "^1.0.0",
+    "@vuepress/plugin-back-to-top": "^1.4.1",
+    "@vuepress/plugin-google-analytics": "^1.4.1",
+    "@vuepress/plugin-nprogress": "^1.4.1",
+    "date-fns": "^1.30.1",
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
+    "vuepress-plugin-container": "^2.1.3",
+    "vuepress-plugin-smooth-scroll": "0.0.9",
+    "vuepress-plugin-table-of-contents": "^1.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "vuepress": "^1.4.1"
+  },
+  "peerDependencies": {
+    "vuepress": "^1.4.1"
+  }
+}
