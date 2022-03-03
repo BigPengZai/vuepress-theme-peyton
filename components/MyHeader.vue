@@ -1,15 +1,9 @@
 <template>
-  <header
-    class="header-container"
-    :style="style"
-  >
+  <header class="header-container" :style="style">
     <MyNavbar />
 
     <TransitionSlide>
-      <div
-        :key="$page.path"
-        class="header-title"
-      >
+      <div :key="$page.path" class="header-title">
         <h1>{{ title }}</h1>
         <p>{{ subtitle }}</p>
       </div>
@@ -18,47 +12,57 @@
 </template>
 
 <script>
-import TransitionSlide from '@theme/components/TransitionSlide.vue'
-import MyNavbar from '@theme/components/MyNavbar.vue'
+import TransitionSlide from "@theme/components/TransitionSlide.vue";
+import MyNavbar from "@theme/components/MyNavbar.vue";
+
 export default {
-  name: 'MyHeader',
+  name: "MyHeader",
   components: {
     MyNavbar,
     TransitionSlide,
   },
+  props: {
+    size: {
+      type: String,
+      require: true,
+      default: "40px",
+    },
+  },
   computed: {
-    title () {
-      return this.$frontmatter.title || null
+    title() {
+      return this.$frontmatter.title || null;
     },
-    subtitle () {
-      return this.$frontmatter.subtitle || null
+    subtitle() {
+      return this.$frontmatter.subtitle || null;
     },
-    backgroundImg () {
-      return this.$frontmatter.headerImage || this.$themeConfig.header.postHeaderImg
+    backgroundImg() {
+      return (
+        this.$frontmatter.headerImage || this.$themeConfig.header.postHeaderImg
+      );
     },
-    style () {
+    style() {
       if (this.backgroundImg) {
-        let url = this.backgroundImg
+        let url = this.backgroundImg;
         if (Array.isArray(url)) {
-          url = this.randomArr(url)
+          url = this.randomArr(url);
         }
         return {
-          'background-size': 'cover',
-          'background-repeat': 'no-repeat',
-          'background-position': 'center',
-          'background-attachment': 'scroll',
-          'background-image': `url(${url})`,
-        }
+          "background-size": "cover",
+          "background-repeat": "no-repeat",
+          "background-position": "center",
+          "background-attachment": "scroll",
+          "background-image": `url(${url})`,
+        };
       }
-      return {}
+      return {};
     },
   },
   methods: {
-    randomArr (arr) {
-      return arr[Math.floor(Math.random() * arr.length)]
+    randomArr(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
     },
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>
@@ -98,5 +102,4 @@ export default {
         font-size 1.5rem
       & p
         font-size 1rem
-
 </style>

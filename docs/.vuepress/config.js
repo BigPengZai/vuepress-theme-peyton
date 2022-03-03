@@ -49,13 +49,13 @@ module.exports = {
     header: {
       home: {
         title: "Peyton Blog",
-        subtitle: "这世界那么多人",
-        headerImage: "/avatar-bg.jpeg",
+        subtitle: "TODO跨越知道和做到的鸿沟",
+        headerImage: "/home-bg.jpeg",
       },
       tags: {
         title: "Tags",
         subtitle: "I am unstoppable",
-        headerImage: "/tags-bg.jpg",
+        headerImage: "/tags-bg.jpeg",
       },
       postHeaderImg: "/post-bg.jpeg",
     },

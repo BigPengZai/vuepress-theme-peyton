@@ -9,7 +9,9 @@
     >
       {{ navtitle }}
     </RouterLink>
-
+    <div v-if="!navbtnShow" class="toAbout" @click="toAbout">
+      <a href="/about">User Info</a>
+    </div>
     <ul
       v-if="navList"
       class="navbar-links"
@@ -23,7 +25,12 @@
           {{ item.text }}
         </a>
 
-        <RouterLink v-else :to="item.link" @click.native="isNavBtn = false">
+        <RouterLink
+          v-else
+          tag="a"
+          :to="item.link"
+          @click.native="isNavBtn = false"
+        >
           {{ item.text }}
         </RouterLink>
       </li>
@@ -94,6 +101,9 @@ export default {
         null
       );
     },
+    toAbout() {
+      console.log("111111");
+    },
   },
 };
 </script>
@@ -127,6 +137,15 @@ $lineHeight = $navbarHeight - ($gutter * 2)
         color $accentColor
     @media (max-width $MQMobile - 1)
       color $accentColor
+  .toAbout
+    margin-right -120px
+    color $accentColor
+    padding 5px
+    margin-top 5px
+    font-size 18px
+    @media (min-width $MQMobile)
+      display none
+
   .navbar-links
     font-weight 800
     display inline-flex

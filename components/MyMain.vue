@@ -1,67 +1,52 @@
 <template>
-  <div
-    class="container"
-  >
-    <main
-      class="main"
-      :style="style"
-    >
+  <div class="container">
+    <main class="main" :style="style">
       <TransitionSlide>
-        <component
-          :is="layout"
-          :key="$page.path"
-        />
+        <component :is="layout" :key="$page.path" />
       </TransitionSlide>
     </main>
     <TransitionSlide direction="x">
-      <aside
-        v-show="layout !== 'tags'"
-        class="aside"
-      >
-        <InfoCard
-          class="main-div"
-        />
+      <aside v-show="layout !== 'tags'" class="aside">
+        <InfoCard class="main-div" />
 
-        <PostToc
-          v-if="$page.type === 'post'"
-          class="main-div aside-toc"
-        />
+        <PostToc v-if="$page.type === 'post'" class="main-div aside-toc" />
       </aside>
     </TransitionSlide>
   </div>
 </template>
 
 <script>
-import TransitionSlide from '@theme/components/TransitionSlide.vue'
-import InfoCard from '@theme/components/InfoCard.vue'
-import PostToc from '@theme/components/PostToc.vue'
+import TransitionSlide from "@theme/components/TransitionSlide.vue";
+import InfoCard from "@theme/components/InfoCard.vue";
+import PostToc from "@theme/components/PostToc.vue";
+
 export default {
-  name: 'MyMain',
+  name: "MyMain",
   components: {
     InfoCard,
     PostToc,
     TransitionSlide,
   },
   computed: {
-    layout () {
-      const layout = this.$page.frontmatter.layout
+    layout() {
+      const layout = this.$page.frontmatter.layout;
       if (layout) {
-        return layout
+        return layout;
       }
 
       if (!this.$page.path) {
-        return 'NotFound'
+        return "NotFound";
       }
 
-      return 'Layout'
+      return "Layout";
     },
-    style () {
+    style() {
       return {
-        width: this.$page.path !== '/tags/' ? '60%' : '70%',
-      }
+        width: this.$page.path !== "/tags/" ? "60%" : "70%",
+      };
     },
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>
