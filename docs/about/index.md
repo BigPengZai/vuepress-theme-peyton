@@ -1,7 +1,7 @@
 ---
 layout: about
 title: About
-subtitle: 你可以很好，但你无需完美
+subtitle: TODO跨越知道和做到的鸿沟
 headerImage: /about-bg.jpg
 ---
 

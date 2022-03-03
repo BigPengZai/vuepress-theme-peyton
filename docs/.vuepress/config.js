@@ -24,7 +24,6 @@ module.exports = {
       },
     ],
   ],
-
   theme: path.resolve(__dirname, "../../index.js"),
   themeConfig: {
     title: "Peyton Blog",
@@ -50,12 +49,12 @@ module.exports = {
     header: {
       home: {
         title: "Peyton Blog",
-        subtitle: "TODO跨越知道和做到的鸿沟",
+        subtitle: "这世界那么多人",
         headerImage: "/avatar-bg.jpeg",
       },
       tags: {
         title: "Tags",
-        subtitle: "遇见你花光了我所有的运气",
+        subtitle: "I am unstoppable",
         headerImage: "/tags-bg.jpg",
       },
       postHeaderImg: "/post-bg.jpeg",
@@ -94,10 +93,11 @@ module.exports = {
     },
 
     comments: {
-      owner: "peyton",
+      platform: "github-v4",
+      owner: "BigPengZai",
       repo: "vuepress-theme-peyton",
-      clientId: "d821e5499c1d72a78039",
-      clientSecret: "7aee0783e9d4110041e604e7121b985655a49cf1",
+      clientId: "79e80b9a02a90bf91feb",
+      clientSecret: "b71c6c25fcd860f951137b59535657a67e4133bb",
       autoCreateIssue: true,
     },
   },

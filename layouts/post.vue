@@ -3,6 +3,10 @@
     <article class="main-div">
       <Content class="post-content content" />
     </article>
+
+    <div v-if="vssueEnable" class="main-div vssue-div">
+      <Vssue :title="vssueTitle" />
+    </div>
   </div>
 </template>
 
@@ -10,7 +14,7 @@
 export default {
   name: "Post",
   computed: {
-    vssue() {
+    vssueEnable() {
       return this.$themeConfig.comments !== false && this.vssueTitle;
     },
     vssueTitle() {
@@ -21,6 +25,6 @@ export default {
 </script>
 
 <style lang="stylus">
-.vssue
+.vssue-div
   margin-top 1rem
 </style>
