@@ -6,8 +6,6 @@
     "index.js",
     "styles",
     "layouts",
-    "global-components",
-    "fonts",
     "components"
   ],
   "main": "index.js",
