@@ -1,19 +1,12 @@
 {
   "name": "vuepress-theme-peyton",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "theme-peyton",
-  "files": [
-    "index.js",
-    "styles",
-    "layouts",
-    "global-components",
-    "fonts",
-    "components"
-  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vuepress dev docs"
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
