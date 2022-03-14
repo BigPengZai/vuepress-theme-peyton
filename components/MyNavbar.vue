@@ -109,129 +109,168 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '~@theme/styles/variables'
+@require '~@theme/styles/variables';
 
-$gutter = 0.7rem
-$lineHeight = $navbarHeight - ($gutter * 2)
+$gutter = 0.7rem;
+$lineHeight = $navbarHeight - ($gutter * 2);
 
-.navbar
-  position absolute
-  top 0
-  left 0
-  right 0
-  z-index 99
-  height $navbarHeight
-  display flex
-  align-items center
-  justify-content space-between
-  @media (max-width $MQMobile - 1)
-    background-color alpha($navbarColor, 0.8)
-  .navbar-link
-    font-size 18px
-    padding 0 20px
-    color $headerTitleColor
-    &:hover
-      color $accentColor
-    @media (min-width $MQMobile)
-      &.fontColor
-        color $accentColor
-    @media (max-width $MQMobile - 1)
-      color $accentColor
-  .toAbout
-    margin-right -120px
-    color $accentColor
-    padding 5px
-    margin-top 5px
-    font-size 18px
-    @media (min-width $MQMobile)
-      display none
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  height: $navbarHeight;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  .navbar-links
-    font-weight 800
-    display inline-flex
-    line-height $lineHeight
-    padding 0 20px
-    color $navbarColor
-    & > li
-      padding 0 1rem
-      list-style none
-      &:hover
-        color $accentColor
-    @media (min-width $MQMobile)
-      &.fontColor
-        color $textColor
-    @media (max-width $MQMobile - 1)
-      display none
-      &.show
-        display block
-        width 50%
-        text-align center
-        position absolute
-        top $navbarHeight
-        right 0
-        padding 1rem
-        color $textColor
-        background-color alpha($navbarColor, 0.8)
+  @media (max-width: $MQMobile - 1) {
+    background-color: alpha($navbarColor, 0.8);
+  }
+
+  .navbar-link {
+    font-size: 18px;
+    padding: 0 20px;
+    color: $headerTitleColor;
+
+    &:hover {
+      color: $accentColor;
+    }
+
+    @media (min-width: $MQMobile) {
+      &.fontColor {
+        color: $accentColor;
+      }
+    }
+
+    @media (max-width: $MQMobile - 1) {
+      color: $accentColor;
+    }
+  }
+
+  .toAbout {
+    margin-right: -100px;
+    color: $accentColor;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 18px;
+
+    @media (min-width: $MQMobile) {
+      display: none;
+    }
+  }
+
+  .navbar-links {
+    font-weight: 800;
+    display: inline-flex;
+    line-height: $lineHeight;
+    padding: 0 20px;
+    color: $navbarColor;
+
+    & > li {
+      padding: 0 1rem;
+      list-style: none;
+
+      &:hover {
+        color: $accentColor;
+      }
+    }
+
+    @media (min-width: $MQMobile) {
+      &.fontColor {
+        color: $textColor;
+      }
+    }
+
+    @media (max-width: $MQMobile - 1) {
+      display: none;
+
+      &.show {
+        display: block;
+        width: 50%;
+        text-align: center;
+        position: absolute;
+        top: $navbarHeight;
+        right: 0;
+        padding: 1rem;
+        color: $textColor;
+        background-color: alpha($navbarColor, 0.8);
+      }
+    }
+  }
 
   /* nav button css */
-  #nav-icon
-    display none
-    width 25px
-    margin-right 20px
-    height 25px
-    position relative
-    -webkit-transform rotate(0deg)
-    -moz-transform rotate(0deg)
-    -o-transform rotate(0deg)
-    transform rotate(0deg)
-    -webkit-transition 0.5s ease-in-out
-    -moz-transition 0.5s ease-in-out
-    -o-transition 0.5s ease-in-out
-    transition 0.5s ease-in-out
-    cursor pointer
-    @media (max-width $MQMobile - 1)
-      display inline-block
+  #nav-icon {
+    display: none;
+    width: 25px;
+    margin-right: 20px;
+    height: 25px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
 
-    span
-      position absolute
-      height 4px
-      width 100%
-      background $accentColor
-      border-radius 9px
-      opacity 1
-      left 0
-      -webkit-transform rotate(0deg)
-      -moz-transform: rotate(0deg)
-      -o-transform: rotate(0deg)
-      transform: rotate(0deg)
-      -webkit-transition 0.25s ease-in-out
-      -moz-transition 0.25s ease-in-out
-      -o-transition 0.25s ease-in-out
-      transition 0.25s ease-in-out
-  #nav-icon span:nth-child(1)
-    top calc(50% - 8px)
+    @media (max-width: $MQMobile - 1) {
+      display: inline-block;
+    }
 
-  #nav-icon span:nth-child(2)
-    top 50%
+    span {
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: $accentColor;
+      border-radius: 9px;
+      opacity: 1;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: 0.25s ease-in-out;
+      -moz-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out;
+      transition: 0.25s ease-in-out;
+    }
+  }
 
-  #nav-icon span:nth-child(3)
-    top calc(50% + 8px)
+  #nav-icon span:nth-child(1) {
+    top: calc(50% - 8px);
+  }
 
-  #nav-icon.open span:nth-child(1)
-    top 50%
-    -webkit-transform rotate(135deg)
-    -moz-transform rotate(135deg)
-    -o-transform rotate(135deg)
-    transform rotate(135deg)
+  #nav-icon span:nth-child(2) {
+    top: 50%;
+  }
 
-  #nav-icon.open span:nth-child(2)
-    opacity 0
-    left -60px
+  #nav-icon span:nth-child(3) {
+    top: calc(50% + 8px);
+  }
 
-  #nav-icon.open span:nth-child(3)
-    top 50%
-    -webkit-transform rotate(-135deg)
-    -moz-transform rotate(-135deg)
-    -o-transform rotate(-135deg)
-    transform rotate(-135deg)
+  #nav-icon.open span:nth-child(1) {
+    top: 50%;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  #nav-icon.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
+
+  #nav-icon.open span:nth-child(3) {
+    top: 50%;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
+}
 </style>
