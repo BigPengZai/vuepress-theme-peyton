@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
   title: "Peyton 的博客",
   description: "个人博客",
+
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
     [
@@ -34,7 +35,7 @@ module.exports = {
       avatar: "/peyton.jpg",
       headerBackgroundImg: "/home-bg.jpeg",
       description:
-        "climb the top of the mountain,<br/>don't stand at the foot<br/>有志登山顶，无志站山脚",
+        "climb the top of the mountain,<br/>don't stand at the foot<br/>煮豆燃豆萁",
       email: "peytonpeng1990@163.com",
       location: "Shanghai, China",
       phonenumber: "15052851735",

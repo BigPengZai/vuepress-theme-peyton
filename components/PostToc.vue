@@ -1,61 +1,58 @@
 <template>
-  <div
-    class="post-toc"
-    :style="style"
-  >
-    <h4>- CATALOG</h4>
+  <div class="post-toc" :style="style">
+    <!-- <h4>- CATALOG</h4> -->
     <TOC class="post-nav-toc" />
   </div>
 </template>
 
 <script>
-import throttle from 'lodash.throttle'
-import debounce from 'lodash.debounce'
+import throttle from "lodash.throttle";
+import debounce from "lodash.debounce";
 export default {
-  name: 'PostToc',
-  data () {
+  name: "PostToc",
+  data() {
     return {
       width: 0,
       fixed: false,
       scrollListener: throttle(() => {
-        this.fixed = this.infoCardDom.getBoundingClientRect().bottom < 0
+        this.fixed = this.infoCardDom.getBoundingClientRect().bottom < 0;
       }, 100),
       resizeListener: debounce(() => {
-        this.width = this.getWidth()
+        this.width = this.getWidth();
       }, 100),
-    }
+    };
   },
   computed: {
-    navbarHeight () {
-      return document.querySelector('.navbar').clientHeight
+    navbarHeight() {
+      return document.querySelector(".navbar").clientHeight;
     },
-    infoCardDom () {
-      return document.querySelector('#app .info-card')
+    infoCardDom() {
+      return document.querySelector("#app .info-card");
     },
-    style () {
+    style() {
       return {
-        position: this.fixed ? 'fixed' : 'relative',
+        position: this.fixed ? "fixed" : "relative",
         top: this.fixed ? `${this.navbarHeight}` : 0,
         width: `${this.width}px`,
-      }
+      };
     },
   },
-  mounted () {
-    this.width = this.getWidth()
-    window.addEventListener('scroll', this.scrollListener)
-    window.addEventListener('resize', this.resizeListener)
+  mounted() {
+    this.width = this.getWidth();
+    window.addEventListener("scroll", this.scrollListener);
+    window.addEventListener("resize", this.resizeListener);
   },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.scrollListener)
-    window.removeEventListener('resize', this.resizeListener)
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.scrollListener);
+    window.removeEventListener("resize", this.resizeListener);
   },
 
   methods: {
-    getWidth () {
-      return this.infoCardDom.clientWidth
+    getWidth() {
+      return this.infoCardDom.clientWidth;
     },
   },
-}
+};
 </script>
 
 <style lang="stylus">
